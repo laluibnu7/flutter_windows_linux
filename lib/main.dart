@@ -1,3 +1,143 @@
+// Flutter Speech to Text App Tutorial
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'speech_screen.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "FLutter Voice",
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: SpeechScreen(),
+    );
+  }
+}
+
+// // FLutter 47 TImer
+// import 'package:flutter/material.dart';
+
+// void main() => runApp(MyApp());
+
+// class MyApp extends StatefulWidget {
+//   @override
+//   _MyAppState createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   int counter = 0;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Timer"),
+//         ),
+//         body: Center(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: <Widget>[
+//               Text(
+//                 counter.toString(),
+//                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+//               ),
+//               SizedBox(
+//                 height: 10,
+//               ),
+//               RaisedButton(
+//                 child: Text("Ubah warna 5 detik kemudian"),
+//                 onPressed: () {},
+//               ),
+//               SizedBox(
+//                 height: 10,
+//               ),
+//               RaisedButton(
+//                 child: Text("Ubah warna Secara langsung"),
+//                 onPressed: () {},
+//               ),
+//               SizedBox(
+//                 height: 10,
+//               ),
+//               RaisedButton(
+//                 child: Text("Start Timer"),
+//                 onPressed: () {},
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// Flutter 46 Doc Comments
+// import 'package:flutter/material.dart';
+// import '46.user_profile_doc_comment.dart';
+
+// // void main() => runApp(MyApp());
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: MainPage(),
+//     );
+//   }
+// }
+
+// class MainPage extends StatefulWidget {
+//   @override
+//   _MainPageState createState() => _MainPageState();
+// }
+
+// class _MainPageState extends State<MainPage> {
+//   UserProfile profile = UserProfile(
+//     name: "Welcome",
+//     role: "Designer",
+//     photoURL: "www.fb.com/la.png",
+//   );
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("Welcome"),
+//       ),
+//       body: Center(
+//         child: profile,
+//       ),
+//     );
+//   }
+// }
+
+// class MyApp extends StatelessWidget {
+//   UserProfile profile = UserProfile();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("welome"),
+//       ),
+//       body: Center(
+//         child: profile,
+//       ),
+//     );
+//   }
+// }
+
 // import 'package:flutter/material.dart';
 // import '45_bloc_stateManagement_flutterBlocPackage.dart';
 
@@ -12,70 +152,70 @@
 //   }
 // }
 
-// FLutter 44 BLoC (Bussiness Logic Component) State State mangment (Stream controller & Strea, Builder)
-import 'package:flutter/material.dart';
-import '44_color_bloc.dart';
+// // FLutter 44 BLoC (Bussiness Logic Component) State State mangment (Stream controller & Strea, Builder)
+// import 'package:flutter/material.dart';
+// import '44_color_bloc.dart';
 
-void main() => runApp(MyApp());
+// void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
+// class MyApp extends StatefulWidget {
+//   @override
+//   _MyAppState createState() => _MyAppState();
+// }
 
-class _MyAppState extends State<MyApp> {
-  ColorBloc bloc = ColorBloc();
+// class _MyAppState extends State<MyApp> {
+//   ColorBloc bloc = ColorBloc();
 
-  @override
-  void dispose() {
-    bloc.dispose();
-    super.dispose();
-  }
+//   @override
+//   void dispose() {
+//     bloc.dispose();
+//     super.dispose();
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            FloatingActionButton(
-              backgroundColor: Colors.amber,
-              onPressed: () {
-                bloc.eventSink.add(ColorEvent.to_amber);
-              },
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            FloatingActionButton(
-              backgroundColor: Colors.lightBlue,
-              onPressed: () {
-                bloc.eventSink.add(ColorEvent.to_light_blue);
-              },
-            )
-          ],
-        ),
-        appBar: AppBar(
-          title: Text("Bloc Tanpa Lbrary"),
-        ),
-        body: Center(
-            child: StreamBuilder(
-          stream: bloc.stateStream,
-          initialData: Colors.amber,
-          builder: (context, snapshot) {
-            return AnimatedContainer(
-              duration: Duration(seconds: 500),
-              width: 100,
-              height: 100,
-              color: snapshot.data,
-            );
-          },
-        )),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         floatingActionButton: Row(
+//           mainAxisAlignment: MainAxisAlignment.end,
+//           children: <Widget>[
+//             FloatingActionButton(
+//               backgroundColor: Colors.amber,
+//               onPressed: () {
+//                 bloc.eventSink.add(ColorEvent.to_amber);
+//               },
+//             ),
+//             SizedBox(
+//               width: 10,
+//             ),
+//             FloatingActionButton(
+//               backgroundColor: Colors.lightBlue,
+//               onPressed: () {
+//                 bloc.eventSink.add(ColorEvent.to_light_blue);
+//               },
+//             )
+//           ],
+//         ),
+//         appBar: AppBar(
+//           title: Text("Bloc Tanpa Lbrary"),
+//         ),
+//         body: Center(
+//             child: StreamBuilder(
+//           stream: bloc.stateStream,
+//           initialData: Colors.amber,
+//           builder: (context, snapshot) {
+//             return AnimatedContainer(
+//               duration: Duration(seconds: 500),
+//               width: 100,
+//               height: 100,
+//               color: snapshot.data,
+//             );
+//           },
+//         )),
+//       ),
+//     );
+//   }
+// }
 
 // // FLutter 44 BLoC (Bussiness Logic Component) State State mangment (Stream controller & Strea, Builder)
 // import 'package:flutter/material.dart';
